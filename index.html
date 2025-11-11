@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href="style.css" rel="stylesheet" />
+    <link rel="icon" href="favicon.svg" />
+    <title>Game of Life</title>
+    <script type="module" src="controller.js" defer></script>
+  </head>
+  <body>
+    <h1>Game of Life</h1>
+    <label for="rowsInput">Rows:</label>
+    <input type="number" id="rowsInput" value="10" />
+    <label for="colsInput">Cols:</label>
+    <input type="number" id="colsInput" value="10" />
+    <br />
+    <button id="resetBoardButton">Reset board</button>
+    <button id="addRandomCellsButton">Add random cells</button>
+    <button id="runGameButton">Run game</button>
+    <p>Generation: <span id="generationCounter">0</span></p>
+    <div id="board">
+      <!-- No cells here in HTML, because they are created by JavaScript -->
+    </div>
+  </body>
+</html>
