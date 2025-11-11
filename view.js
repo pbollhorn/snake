@@ -35,6 +35,26 @@ export function clickedResetBoardButton() {
   controller.resetBoard(rows, cols);
 }
 
+export function buildBoard(grid) {
+  // Sets the CSS property which controls number of columns
+  board.style.gridTemplateColumns = `repeat(${grid.cols()}, max-content)`;
+
+  // Loop over rows and cols and create child elements for the board (the cells)
+  for (let row = 0; row < grid.rows(); row++) {
+    for (let col = 0; col < grid.cols(); col++) {
+      board.appendChild(createCellElement(row, col));
+    }
+  }
+}
+
+function createCellElement(row, col) {
+  let cell = document.createElement("div");
+  cell.className = "cell empty";
+  cell.setAttribute("data-row", row);
+  cell.setAttribute("data-col", col);
+  return cell;
+}
+
 function clickedAddRandomCellsButton() {
   controller.addRandomCells();
 }
@@ -45,14 +65,6 @@ function clickedRunGameButton() {
   resetBoardButton.disabled = true;
   addRandomCellsButton.disabled = true;
   controller.runGame();
-}
-
-function createCellElement(row, col) {
-  let cell = document.createElement("div");
-  cell.className = "cell empty";
-  cell.setAttribute("data-row", row);
-  cell.setAttribute("data-col", col);
-  return cell;
 }
 
 function clickedBoard(event) {

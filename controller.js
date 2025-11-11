@@ -31,4 +31,6 @@ function sleep(ms) {
 
 // Startup code which is only run once - on page load
 view.registerEventHandlers();
-view.clickedResetBoardButton();
+// view.clickedResetBoardButton();
+console.log(model.getBoard());
+view.buildBoard(model.getBoard());
