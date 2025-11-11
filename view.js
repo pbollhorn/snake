@@ -9,10 +9,10 @@ const rowsInput = document.getElementById("rowsInput");
 const colsInput = document.getElementById("colsInput");
 
 export function registerEventHandlers() {
-  resetBoardButton.addEventListener("click", clickedResetBoardButton);
-  addRandomCellsButton.addEventListener("click", clickedAddRandomCellsButton);
-  runGameButton.addEventListener("click", clickedRunGameButton);
-  board.addEventListener("click", clickedBoard);
+  // resetBoardButton.addEventListener("click", clickedResetBoardButton);
+  // addRandomCellsButton.addEventListener("click", clickedAddRandomCellsButton);
+  // runGameButton.addEventListener("click", clickedRunGameButton);
+  // board.addEventListener("click", clickedBoard);
 }
 
 export function clickedResetBoardButton() {
