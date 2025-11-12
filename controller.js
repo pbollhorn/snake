@@ -6,9 +6,13 @@ let snakeDirection = 0;
 export async function runGame() {
   // This is the game loop
   while (true) {
-    model.nextFrame(snakeDirection);
+    const statusCode = model.nextFrame(snakeDirection);
     view.displayBoard(model.getBoard());
     await sleep(1000);
+    if (statusCode === 1) {
+      alert("Game over");
+      break;
+    }
   }
 }
 

@@ -20,11 +20,10 @@ function initSnake() {
 }
 
 export function nextFrame(snakeDirection) {
-  
   // Create empty newGrid
   const newGrid = new Grid(rows, cols, CellValue.EMPTY);
 
-  // Move snake
+  // Calcuate new position of snakeHead
   const snakeHead = structuredClone(snake.peekTail()); // head of snake is tail of queue
   if (snakeDirection === Direction.UP) {
     snakeHead.row--;
@@ -38,6 +37,8 @@ export function nextFrame(snakeDirection) {
   if (snakeDirection === Direction.RIGHT) {
     snakeHead.col++;
   }
+
+  // move the snake
   snake.enqueue(snakeHead);
   snake.dequeue();
 
@@ -51,6 +52,17 @@ export function nextFrame(snakeDirection) {
 
   // Replace grid with newGrid
   grid = newGrid;
+
+  // Check if snakeHead is out of bounds
+  if (
+    snakeHead.row < 0 ||
+    snakeHead.row >= rows ||
+    snakeHead.col < 0 ||
+    snakeHead.col >= cols
+  ) {
+    return 1; // status code 1 - game over
+  }
+  return 0; // status code 0 - continue playing
 }
 
 export function getBoard() {
