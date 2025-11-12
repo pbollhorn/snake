@@ -13,17 +13,12 @@ export function setCell(row, col) {
   view.displayBoard(grid);
 }
 
-export function addRandomCells() {
-  model.addRandomCells();
-  view.displayBoard(model.getBoard());
-}
-
 export async function runGame() {
   // This is the game loop
   while (true) {
     model.nextFrame(snakeDirection);
     view.displayBoard(model.getBoard());
-    await sleep(500);
+    await sleep(5000);
   }
 }
 

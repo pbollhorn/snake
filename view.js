@@ -70,8 +70,6 @@ export function displayBoard(grid) {
   for (const cell of board.children) {
     const row = parseInt(cell.dataset.row);
     const col = parseInt(cell.dataset.col);
-    console.log(row);
-    console.log(col);
 
     // Set CSS classes for cell depending on true/false value in grid
     switch (grid.get({ row, col })) {
