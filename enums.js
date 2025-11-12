@@ -1,7 +1,6 @@
 export const CellValue = Object.freeze({
   EMPTY: 0,
-  SNAKE_HEAD: 1,
-  SNAKE_BODY: 2,
+  SNAKE: 1,
   APPLE: 3,
 });
 

@@ -57,11 +57,8 @@ export function displayBoard(grid) {
       case CellValue.EMPTY:
         cell.innerText = "";
         break;
-      case CellValue.SNAKE_HEAD:
-        cell.innerText = "😀";
-        break;
-      case CellValue.SNAKE_BODY:
-        cell.innerText = "🟡";
+      case CellValue.SNAKE:
+        cell.innerText = "🟢";
         break;
       case CellValue.APPLE:
         cell.innerText = "🍎";

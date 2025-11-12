@@ -43,7 +43,7 @@ export function nextFrame(snakeDirection) {
 
   // Place snake on newGrid
   for (const element of snake) {
-    newGrid.set(element, CellValue.SNAKE_BODY);
+    newGrid.set(element, CellValue.SNAKE);
   }
 
   // Show an apple
