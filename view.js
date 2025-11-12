@@ -3,7 +3,7 @@ import * as controller from "./controller.js";
 const board = document.getElementById("board");
 
 export function registerEventHandlers() {
-  document.addEventListener("keydown", (event) => {
+  document.addEventListener("keyup", (event) => {
     const directions = ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"];
     if (directions.includes(event.key)) {
       event.preventDefault(); // stop page scrolling
