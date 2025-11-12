@@ -5,23 +5,23 @@ const board = document.getElementById("board");
 
 export function registerEventHandlers() {
   document.addEventListener("keyup", (event) => {
-    const directions = ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"];
-    if (directions.includes(event.key)) {
-      event.preventDefault(); // stop page scrolling
-      switch (event.key) {
-        case "ArrowUp":
-          controller.turnSnake(Direction.UP);
-          break;
-        case "ArrowDown":
-          controller.turnSnake(Direction.DOWN);
-          break;
-        case "ArrowLeft":
-          controller.turnSnake(Direction.LEFT);
-          break;
-        case "ArrowRight":
-          controller.turnSnake(Direction.RIGHT);
-          break;
-      }
+    switch (event.key) {
+      case "ArrowUp":
+        event.preventDefault(); // stop page scrolling
+        controller.turnSnake(Direction.UP);
+        break;
+      case "ArrowDown":
+        event.preventDefault(); // stop page scrolling
+        controller.turnSnake(Direction.DOWN);
+        break;
+      case "ArrowLeft":
+        event.preventDefault(); // stop page scrolling
+        controller.turnSnake(Direction.LEFT);
+        break;
+      case "ArrowRight":
+        event.preventDefault(); // stop page scrolling
+        controller.turnSnake(Direction.RIGHT);
+        break;
     }
   });
 }
