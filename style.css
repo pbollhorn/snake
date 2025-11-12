@@ -4,7 +4,7 @@ body {
 
 #board {
   display: grid;
-  gap: 3px;
+  gap: 1px;
   /* This is set in JavaScript:
   grid-template-columns: repeat(NUMBER OF COLS, max-content); */
 }
@@ -12,12 +12,5 @@ body {
 .cell {
   width: 2rem;
   height: 2rem;
-}
-
-.empty {
-  background-color: white;
-}
-
-.filled {
   background-color: black;
 }

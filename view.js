@@ -57,10 +57,10 @@ export function displayBoard(grid) {
         cell.innerText = "";
         break;
       case 1:
-        cell.innerText = "1";
+        cell.innerText = "🐲";
         break;
       case 2:
-        cell.innerText = "2";
+        cell.innerText = "🟢";
         break;
     }
   }
