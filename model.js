@@ -7,31 +7,40 @@ const cols = 30;
 
 let grid = new Grid(rows, cols, CellValue.EMPTY);
 
-let snakeHead = { row: Math.floor(rows / 2), col: Math.floor(cols / 2) };
-let snakeBody = new Queue();
-snakeBody.enqueue({ row: snakeHead.row + 1, col: snakeHead.col });
-snakeBody.enqueue({ row: snakeHead.row + 2, col: snakeHead.col });
+let snake;
+initSnake();
+console.log(snake);
+
+function initSnake() {
+  const snakeHead = { row: Math.floor(rows / 2), col: Math.floor(cols / 2) };
+
+  snake = new Queue();
+  snake.enqueue({ row: snakeHead.row + 2, col: snakeHead.col });
+  snake.enqueue({ row: snakeHead.row + 1, col: snakeHead.col });
+  snake.enqueue({ row: snakeHead.row, col: snakeHead.col });
+}
 
 export function nextFrame(snakeDirection) {
   const newGrid = new Grid(rows, cols, CellValue.EMPTY);
 
-  snakeBody.enqueue({ row: snakeHead.row, col: snakeHead.col });
-  snakeBody.dequeue();
-  if (snakeDirection === Direction.UP) {
-    snakeHead.row--;
-  }
-  if (snakeDirection === Direction.DOWN) {
-    snakeHead.row++;
-  }
-  if (snakeDirection === Direction.LEFT) {
-    snakeHead.col--;
-  }
-  if (snakeDirection === Direction.RIGHT) {
-    snakeHead.col++;
-  }
+  const snakeHead = snake.peekTail(); // head of snake is tail of queue
+  // if (snakeDirection === Direction.UP) {
+  //   snakeHead.row--;
+  // }
+  // if (snakeDirection === Direction.DOWN) {
+  //   snakeHead.row++;
+  // }
+  // if (snakeDirection === Direction.LEFT) {
+  //   snakeHead.col--;
+  // }
+  // if (snakeDirection === Direction.RIGHT) {
+  //   snakeHead.col++;
+  // }
+  // snake.enqueue({ row: snakeHead.row, col: snakeHead.col });
+  // snake.dequeue();
 
   newGrid.set(snakeHead, CellValue.SNAKE_HEAD);
-  for (const element of snakeBody) {
+  for (const element of snake) {
     newGrid.set(element, CellValue.SNAKE_BODY);
   }
 
