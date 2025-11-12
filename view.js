@@ -1,18 +1,9 @@
 import * as controller from "./controller.js";
 
 const board = document.getElementById("board");
-const generationCounter = document.getElementById("generationCounter");
-const resetBoardButton = document.getElementById("resetBoardButton");
-const addRandomCellsButton = document.getElementById("addRandomCellsButton");
-const runGameButton = document.getElementById("runGameButton");
-const rowsInput = document.getElementById("rowsInput");
-const colsInput = document.getElementById("colsInput");
 
 export function registerEventHandlers() {
-  // resetBoardButton.addEventListener("click", clickedResetBoardButton);
-  // addRandomCellsButton.addEventListener("click", clickedAddRandomCellsButton);
-  // runGameButton.addEventListener("click", clickedRunGameButton);
-  // board.addEventListener("click", clickedBoard);
+
 }
 
 export function clickedResetBoardButton() {
@@ -55,26 +46,7 @@ function createCellElement(row, col) {
   return cell;
 }
 
-function clickedAddRandomCellsButton() {
-  controller.addRandomCells();
-}
 
-function clickedRunGameButton() {
-  rowsInput.disabled = true;
-  colsInput.disabled = true;
-  resetBoardButton.disabled = true;
-  addRandomCellsButton.disabled = true;
-  controller.runGame();
-}
-
-function clickedBoard(event) {
-  const target = event.target;
-  if (target.classList.contains("cell")) {
-    const row = parseInt(target.dataset.row);
-    const col = parseInt(target.dataset.col);
-    controller.setCell(row, col);
-  }
-}
 
 export function displayBoard(grid) {
   // Loop over all children of the board (which are the cells)
@@ -92,8 +64,4 @@ export function displayBoard(grid) {
         break;
     }
   }
-}
-
-export function displayGenerationNumber(generationNumber) {
-  generationCounter.innerText = generationNumber;
 }
