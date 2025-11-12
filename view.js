@@ -3,28 +3,52 @@ import * as controller from "./controller.js";
 const board = document.getElementById("board");
 
 export function registerEventHandlers() {
-
-}
-
-export function clickedResetBoardButton() {
-  const rows = rowsInput.value;
-  const cols = colsInput.value;
-
-  // This removes all children from the board
-  board.innerHTML = "";
-
-  // Sets the CSS property which controls number of columns
-  board.style.gridTemplateColumns = `repeat(${cols}, max-content)`;
-
-  // Loop over rows and cols and create child elements for the board (the cells)
-  for (let row = 0; row < rows; row++) {
-    for (let col = 0; col < cols; col++) {
-      board.appendChild(createCellElement(row, col));
+  document.addEventListener("keydown", (event) => {
+    const directions = ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"];
+    if (directions.includes(event.key)) {
+      event.preventDefault(); // stop page scrolling
     }
-  }
 
-  controller.resetBoard(rows, cols);
+    switch (event.key) {
+      case "ArrowUp":
+        // moveSnake("up");
+        console.log("up");
+        break;
+      case "ArrowDown":
+        // moveSnake("down");
+        console.log("down");
+        break;
+      case "ArrowLeft":
+        // moveSnake("left");
+        console.log("left");
+        break;
+      case "ArrowRight":
+        // moveSnake("right");
+        console.log("right");
+        break;
+    }
+  });
 }
+
+// export function clickedResetBoardButton() {
+//   const rows = rowsInput.value;
+//   const cols = colsInput.value;
+
+//   // This removes all children from the board
+//   board.innerHTML = "";
+
+//   // Sets the CSS property which controls number of columns
+//   board.style.gridTemplateColumns = `repeat(${cols}, max-content)`;
+
+//   // Loop over rows and cols and create child elements for the board (the cells)
+//   for (let row = 0; row < rows; row++) {
+//     for (let col = 0; col < cols; col++) {
+//       board.appendChild(createCellElement(row, col));
+//     }
+//   }
+
+//   controller.resetBoard(rows, cols);
+// }
 
 export function buildBoard(grid) {
   // Sets the CSS property which controls number of columns
@@ -45,8 +69,6 @@ function createCellElement(row, col) {
   cell.setAttribute("data-col", col);
   return cell;
 }
-
-
 
 export function displayBoard(grid) {
   // Loop over all children of the board (which are the cells)
