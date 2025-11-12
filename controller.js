@@ -3,10 +3,6 @@ import * as model from "./model.js";
 
 let snakeDirection = 0;
 
-export function resetBoard(rows, cols) {
-  model.resetBoard(rows, cols);
-}
-
 export async function runGame() {
   // This is the game loop
   while (true) {
