@@ -1,4 +1,5 @@
 import * as controller from "./controller.js";
+import { CellValue } from "./enums.js";
 
 const board = document.getElementById("board");
 
@@ -53,16 +54,16 @@ export function displayBoard(grid) {
 
     // Set CSS classes for cell depending on true/false value in grid
     switch (grid.get({ row, col })) {
-      case 0:
+      case CellValue.EMPTY:
         cell.innerText = "";
         break;
-      case 1:
+      case CellValue.SNAKE_HEAD:
         cell.innerText = "😀";
         break;
-      case 2:
+      case CellValue.SNAKE_BODY:
         cell.innerText = "🟡";
         break;
-      case 3:
+      case CellValue.APPLE:
         cell.innerText = "🍎";
         break;
     }

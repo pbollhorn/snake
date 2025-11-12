@@ -1,15 +1,9 @@
 import Grid from "https://pbollhorn.github.io/datastruktur-portfolio/grid/grid.js";
 import Queue from "https://pbollhorn.github.io/datastruktur-portfolio/queue/queue.js";
+import { CellValue, Direction } from "./enums.js";
 
 const rows = 20;
 const cols = 30;
-
-export const CellValue = Object.freeze({
-  EMPTY: 0,
-  SNAKE_HEAD: 1,
-  SNAKE_BODY: 2,
-  APPLE: 3,
-});
 
 let grid = new Grid(rows, cols, CellValue.EMPTY);
 
@@ -51,13 +45,3 @@ export function getBoard() {
   console.log("hello from model.getBoard()");
   return grid;
 }
-
-const Direction = Object.freeze({
-  UP: "UP",
-  DOWN: "DOWN",
-  LEFT: "LEFT",
-  RIGHT: "RIGHT",
-});
-
-console.log(Direction);
-console.log(Direction.UP);
