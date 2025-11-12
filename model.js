@@ -26,6 +26,15 @@ export function nextFrame(snakeDirection) {
   if (snakeDirection === "up") {
     snakeHead.row--;
   }
+  if (snakeDirection === "down") {
+    snakeHead.row++;
+  }
+  if (snakeDirection === "left") {
+    snakeHead.col--;
+  }
+  if (snakeDirection === "right") {
+    snakeHead.col++;
+  }
 
   newGrid.set(snakeHead, CellValue.SNAKE_HEAD);
   for (const element of snakeBody) {

@@ -12,7 +12,7 @@ export async function runGame() {
   while (true) {
     model.nextFrame(snakeDirection);
     view.displayBoard(model.getBoard());
-    await sleep(5000);
+    await sleep(1000);
   }
 }
 
