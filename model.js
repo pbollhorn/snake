@@ -12,6 +12,8 @@ function initializeSnake() {
 
   const head = { row: Math.floor(rows / 2), col: Math.floor(cols / 2) };
   snake.enqueue(head);
+  snake.enqueue({ row: head.row + 1, col: head.col });
+  snake.enqueue({ row: head.row + 2, col: head.col });
 }
 
 initializeSnake();
@@ -22,8 +24,10 @@ export function nextFrame(snakeDirection) {
   snake.printQueue();
 
   for (const cell of snake) {
-    grid.set(cell, true);
+    newGrid.set(cell, true);
   }
+
+  // newGrid.set({ row: 5, col: 6 }, true);
 
   grid = newGrid;
 }
@@ -52,6 +56,7 @@ export function nextFrame(snakeDirection) {
 // }
 
 export function getBoard() {
+  console.log("hello from model.getBoard()");
   return grid;
 }
 
