@@ -17,16 +17,16 @@ export function nextFrame(snakeDirection) {
 
   snakeBody.enqueue({ row: snakeHead.row, col: snakeHead.col });
   snakeBody.dequeue();
-  if (snakeDirection === "up") {
+  if (snakeDirection === Direction.UP) {
     snakeHead.row--;
   }
-  if (snakeDirection === "down") {
+  if (snakeDirection === Direction.DOWN) {
     snakeHead.row++;
   }
-  if (snakeDirection === "left") {
+  if (snakeDirection === Direction.LEFT) {
     snakeHead.col--;
   }
-  if (snakeDirection === "right") {
+  if (snakeDirection === Direction.RIGHT) {
     snakeHead.col++;
   }
 

@@ -1,5 +1,5 @@
 import * as controller from "./controller.js";
-import { CellValue } from "./enums.js";
+import { CellValue, Direction } from "./enums.js";
 
 const board = document.getElementById("board");
 
@@ -10,16 +10,16 @@ export function registerEventHandlers() {
       event.preventDefault(); // stop page scrolling
       switch (event.key) {
         case "ArrowUp":
-          controller.turnSnake("up");
+          controller.turnSnake(Direction.UP);
           break;
         case "ArrowDown":
-          controller.turnSnake("down");
+          controller.turnSnake(Direction.DOWN);
           break;
         case "ArrowLeft":
-          controller.turnSnake("left");
+          controller.turnSnake(Direction.LEFT);
           break;
         case "ArrowRight":
-          controller.turnSnake("right");
+          controller.turnSnake(Direction.RIGHT);
           break;
       }
     }

@@ -1,7 +1,7 @@
 import * as view from "./view.js";
 import * as model from "./model.js";
 
-let snakeDirection = "up";
+let snakeDirection = 0;
 
 export function resetBoard(rows, cols) {
   model.resetBoard(rows, cols);
