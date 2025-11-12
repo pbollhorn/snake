@@ -53,11 +53,14 @@ export function displayBoard(grid) {
 
     // Set CSS classes for cell depending on true/false value in grid
     switch (grid.get({ row, col })) {
-      case true:
-        cell.className = "cell filled";
+      case 0:
+        cell.innerText = "";
         break;
-      case false:
-        cell.className = "cell empty";
+      case 1:
+        cell.innerText = "1";
+        break;
+      case 2:
+        cell.innerText = "2";
         break;
     }
   }
