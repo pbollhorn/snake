@@ -24,7 +24,7 @@ export function nextFrame(snakeDirection) {
   const newGrid = new Grid(rows, cols, CellValue.EMPTY);
 
   // Calcuate new position of snakeHead
-  const snakeHead = structuredClone(snake.peekTail()); // head of snake is tail of queue
+  const snakeHead = structuredClone(snake.peekTail()); // front of snake is tail of queue
   if (snakeDirection === Direction.UP) {
     snakeHead.row--;
   }
@@ -38,9 +38,8 @@ export function nextFrame(snakeDirection) {
     snakeHead.col++;
   }
 
-  // move the snake
+  // move the front of the snake
   snake.enqueue(snakeHead);
-  snake.dequeue();
 
   // Place snake on newGrid
   for (const element of snake) {
@@ -62,6 +61,15 @@ export function nextFrame(snakeDirection) {
   ) {
     return 1; // status code 1 - game over
   }
+
+  // Check if snakeHead is eating an apple
+  if (snakeHead.row === 2 && snakeHead.col === 2) {
+    return 0; // return early
+  }
+
+  // move the back of the snake
+  snake.dequeue();
+
   return 0; // status code 0 - continue playing
 }
 
