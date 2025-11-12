@@ -20,17 +20,12 @@ function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-
 export function turnSnake(direction) {
   snakeDirection = direction;
   console.log(snakeDirection);
 }
 
 // Startup code which is only run once - on page load
+view.buildBoard(model.getBoard());
 view.registerEventHandlers();
 runGame();
-// view.clickedResetBoardButton();
-console.log(model.getBoard());
-view.buildBoard(model.getBoard());
-
-
