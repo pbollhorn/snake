@@ -26,6 +26,26 @@ export function registerEventHandlers() {
   });
 }
 
+export function displayBoard(grid) {
+  // Loop over all children of the board (which are the cells)
+  for (const cell of board.children) {
+    const row = parseInt(cell.dataset.row);
+    const col = parseInt(cell.dataset.col);
+
+    switch (grid.get({ row, col })) {
+      case CellValue.EMPTY:
+        cell.innerText = "";
+        break;
+      case CellValue.SNAKE:
+        cell.innerText = "🟢";
+        break;
+      case CellValue.APPLE:
+        cell.innerText = "🍎";
+        break;
+    }
+  }
+}
+
 export function buildBoard(grid) {
   // Sets the CSS property which controls number of columns
   board.style.gridTemplateColumns = `repeat(${grid.cols()}, max-content)`;
@@ -40,29 +60,8 @@ export function buildBoard(grid) {
 
 function createCellElement(row, col) {
   let cell = document.createElement("div");
-  cell.className = "cell empty";
+  cell.className = "cell";
   cell.setAttribute("data-row", row);
   cell.setAttribute("data-col", col);
   return cell;
-}
-
-export function displayBoard(grid) {
-  // Loop over all children of the board (which are the cells)
-  for (const cell of board.children) {
-    const row = parseInt(cell.dataset.row);
-    const col = parseInt(cell.dataset.col);
-
-    // Set CSS classes for cell depending on true/false value in grid
-    switch (grid.get({ row, col })) {
-      case CellValue.EMPTY:
-        cell.innerText = "";
-        break;
-      case CellValue.SNAKE:
-        cell.innerText = "🟢";
-        break;
-      case CellValue.APPLE:
-        cell.innerText = "🍎";
-        break;
-    }
-  }
 }
