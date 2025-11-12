@@ -8,7 +8,7 @@ export const CellValue = Object.freeze({
   EMPTY: 0,
   SNAKE_HEAD: 1,
   SNAKE_BODY: 2,
-  FRUIT: 3,
+  APPLE: 3,
 });
 
 let grid = new Grid(rows, cols, CellValue.EMPTY);
@@ -25,6 +25,8 @@ export function nextFrame(snakeDirection) {
   for (const element of snakeBody) {
     newGrid.set(element, CellValue.SNAKE_BODY);
   }
+
+  newGrid.set({ row: 2, col: 2 }, CellValue.APPLE);
 
   grid = newGrid;
 }

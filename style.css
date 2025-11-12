@@ -4,13 +4,17 @@ body {
 
 #board {
   display: grid;
-  gap: 1px;
+  /* gap: 1px; */
   /* This is set in JavaScript:
   grid-template-columns: repeat(NUMBER OF COLS, max-content); */
 }
 
 .cell {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
   width: 2rem;
   height: 2rem;
   background-color: black;
+  font-size: 1.8rem;
 }

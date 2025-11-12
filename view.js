@@ -62,6 +62,9 @@ export function displayBoard(grid) {
       case 2:
         cell.innerText = "🟢";
         break;
+      case 3:
+        cell.innerText = "🍎";
+        break;
     }
   }
 }
