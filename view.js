@@ -25,26 +25,6 @@ export function registerEventHandlers() {
   });
 }
 
-// export function clickedResetBoardButton() {
-//   const rows = rowsInput.value;
-//   const cols = colsInput.value;
-
-//   // This removes all children from the board
-//   board.innerHTML = "";
-
-//   // Sets the CSS property which controls number of columns
-//   board.style.gridTemplateColumns = `repeat(${cols}, max-content)`;
-
-//   // Loop over rows and cols and create child elements for the board (the cells)
-//   for (let row = 0; row < rows; row++) {
-//     for (let col = 0; col < cols; col++) {
-//       board.appendChild(createCellElement(row, col));
-//     }
-//   }
-
-//   controller.resetBoard(rows, cols);
-// }
-
 export function buildBoard(grid) {
   // Sets the CSS property which controls number of columns
   board.style.gridTemplateColumns = `repeat(${grid.cols()}, max-content)`;

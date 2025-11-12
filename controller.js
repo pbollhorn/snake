@@ -7,12 +7,6 @@ export function resetBoard(rows, cols) {
   model.resetBoard(rows, cols);
 }
 
-export function setCell(row, col) {
-  model.setCell(row, col);
-  const grid = model.getBoard();
-  view.displayBoard(grid);
-}
-
 export async function runGame() {
   // This is the game loop
   while (true) {
