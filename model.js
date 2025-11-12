@@ -5,25 +5,17 @@ const rows = 20;
 const cols = 30;
 
 let grid = new Grid(rows, cols, false);
-let snake;
+let snakeHead = { row: Math.floor(rows / 2), col: Math.floor(cols / 2) };
+let snakeBody = new Queue();
+snakeBody.enqueue({ row: snakeHead.row + 1, col: snakeHead.col });
+snakeBody.enqueue({ row: snakeHead.row + 2, col: snakeHead.col });
 
-function initializeSnake() {
-  snake = new Queue();
-
-  const head = { row: Math.floor(rows / 2), col: Math.floor(cols / 2) };
-  snake.enqueue(head);
-  snake.enqueue({ row: head.row + 1, col: head.col });
-  snake.enqueue({ row: head.row + 2, col: head.col });
-}
-
-initializeSnake();
 
 export function nextFrame(snakeDirection) {
   const newGrid = new Grid(rows, cols, false);
 
-  snake.printQueue();
-
-  for (const cell of snake) {
+  newGrid.set(snakeHead, true);
+  for (const cell of snakeBody) {
     newGrid.set(cell, true);
   }
 
