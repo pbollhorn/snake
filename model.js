@@ -1,9 +1,33 @@
 import Grid from "https://pbollhorn.github.io/datastruktur-portfolio/grid/grid.js";
+import Queue from "https://pbollhorn.github.io/datastruktur-portfolio/queue/queue.js";
 
 const rows = 20;
 const cols = 30;
 
 let grid = new Grid(rows, cols, false);
+let snake;
+
+function initializeSnake() {
+  snake = new Queue();
+
+  const head = { row: Math.floor(rows / 2), col: Math.floor(cols / 2) };
+  snake.enqueue(head);
+}
+
+initializeSnake();
+
+export function nextFrame(snakeDirection) {
+  const newGrid = new Grid(rows, cols, false);
+
+  snake.printQueue();
+
+  for (const cell of snake) {
+    grid.set(cell, true);
+  }
+
+  grid = newGrid;
+}
+
 // let generationNumber;
 
 // export function resetBoard(rows, cols) {

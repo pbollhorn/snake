@@ -7,25 +7,20 @@ export function registerEventHandlers() {
     const directions = ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"];
     if (directions.includes(event.key)) {
       event.preventDefault(); // stop page scrolling
-    }
-
-    switch (event.key) {
-      case "ArrowUp":
-        // moveSnake("up");
-        console.log("up");
-        break;
-      case "ArrowDown":
-        // moveSnake("down");
-        console.log("down");
-        break;
-      case "ArrowLeft":
-        // moveSnake("left");
-        console.log("left");
-        break;
-      case "ArrowRight":
-        // moveSnake("right");
-        console.log("right");
-        break;
+      switch (event.key) {
+        case "ArrowUp":
+          controller.turnSnake("up");
+          break;
+        case "ArrowDown":
+          controller.turnSnake("down");
+          break;
+        case "ArrowLeft":
+          controller.turnSnake("left");
+          break;
+        case "ArrowRight":
+          controller.turnSnake("right");
+          break;
+      }
     }
   });
 }
