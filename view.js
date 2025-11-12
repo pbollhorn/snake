@@ -57,10 +57,10 @@ export function displayBoard(grid) {
         cell.innerText = "";
         break;
       case 1:
-        cell.innerText = "🐲";
+        cell.innerText = "😀";
         break;
       case 2:
-        cell.innerText = "🟢";
+        cell.innerText = "🟡";
         break;
       case 3:
         cell.innerText = "🍎";
