@@ -9,7 +9,6 @@ let grid = new Grid(rows, cols, CellValue.EMPTY);
 
 let snake;
 initSnake();
-console.log(snake);
 
 function initSnake() {
   const snakeHead = { row: Math.floor(rows / 2), col: Math.floor(cols / 2) };
@@ -21,25 +20,28 @@ function initSnake() {
 }
 
 export function nextFrame(snakeDirection) {
+  
+  // Create empty newGrid
   const newGrid = new Grid(rows, cols, CellValue.EMPTY);
 
-  const snakeHead = snake.peekTail(); // head of snake is tail of queue
-  // if (snakeDirection === Direction.UP) {
-  //   snakeHead.row--;
-  // }
-  // if (snakeDirection === Direction.DOWN) {
-  //   snakeHead.row++;
-  // }
-  // if (snakeDirection === Direction.LEFT) {
-  //   snakeHead.col--;
-  // }
-  // if (snakeDirection === Direction.RIGHT) {
-  //   snakeHead.col++;
-  // }
-  // snake.enqueue({ row: snakeHead.row, col: snakeHead.col });
-  // snake.dequeue();
+  // Move snake
+  const snakeHead = structuredClone(snake.peekTail()); // head of snake is tail of queue
+  if (snakeDirection === Direction.UP) {
+    snakeHead.row--;
+  }
+  if (snakeDirection === Direction.DOWN) {
+    snakeHead.row++;
+  }
+  if (snakeDirection === Direction.LEFT) {
+    snakeHead.col--;
+  }
+  if (snakeDirection === Direction.RIGHT) {
+    snakeHead.col++;
+  }
+  snake.enqueue(snakeHead);
+  snake.dequeue();
 
-  newGrid.set(snakeHead, CellValue.SNAKE_HEAD);
+  // Place snake on newGrid
   for (const element of snake) {
     newGrid.set(element, CellValue.SNAKE_BODY);
   }
@@ -47,10 +49,10 @@ export function nextFrame(snakeDirection) {
   // Show an apple
   newGrid.set({ row: 2, col: 2 }, CellValue.APPLE);
 
+  // Replace grid with newGrid
   grid = newGrid;
 }
 
 export function getBoard() {
-  console.log("hello from model.getBoard()");
   return grid;
 }
